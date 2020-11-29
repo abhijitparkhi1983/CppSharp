@@ -40,6 +40,9 @@ jobs:
             echo ::set-env name=%%a::%%b
           )
           endlocal
+          wmic product where "description='Xamarin Offline Packages' " uninstall
+          wmic product where "description='Azure Cosmos DB Emulator' " uninstall
+          wmic product where "description='MongoDB 4.4.3 2008R2Plus SSL (64 bit)' " uninstall
 
       - name: Fix intrin.h file
         if: matrix.config.vs > 0
